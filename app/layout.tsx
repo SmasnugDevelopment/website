@@ -3,7 +3,6 @@ import { Roboto_Mono } from "next/font/google";
 import "./globals.css";
 
 const robotoMono = Roboto_Mono({
-  variable: "--font-roboto-mono",
   subsets: ["latin"],
 });
 
@@ -19,7 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${robotoMono.variable} antialiased`}>{children}</body>
+      <body className={`${robotoMono.className} antialiased`}>{children}</body>
     </html>
   );
 }
