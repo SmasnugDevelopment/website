@@ -37,7 +37,6 @@ interface NavbarProps {
     src: string;
     mobileSrc: string;
     alt: string;
-    title: string;
   };
   menu?: MenuItem[];
   auth?: {
@@ -58,7 +57,6 @@ const Navbar = ({
     src: "https://shadcnblocks.com/images/block/logos/shadcnblockscom-icon.svg",
     mobileSrc: "",
     alt: "logo",
-    title: "Shadcnblocks.com",
   },
   menu = [
     { title: "Home", url: "#" },
@@ -146,9 +144,6 @@ const Navbar = ({
             {/* Logo */}
             <a href={logo.url} className="flex items-center gap-2">
               <img src={logo.src} className="max-h-8" alt={logo.alt} />
-              <span className="text-lg font-semibold tracking-tighter">
-                {logo.title}
-              </span>
             </a>
             <div className="flex items-center">
               <NavigationMenu>
@@ -173,7 +168,7 @@ const Navbar = ({
           <div className="flex items-center justify-between">
             {/* Logo */}
             <a href={logo.url} className="flex items-center gap-2">
-              <img src={logo.src} className="max-h-8" alt={logo.alt} />
+              <img src={logo.mobileSrc} className="max-h-8" alt={logo.alt} />
             </a>
             <Sheet>
               <SheetTrigger asChild>
