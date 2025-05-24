@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Roboto_Mono } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/navbar";
+import { ThemeProvider } from "@/components/theme-provider";
 
 const robotoMono = Roboto_Mono({
   subsets: ["latin"],
@@ -18,10 +19,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={`${robotoMono.className} antialiased`}>
-        <Navbar />
-        {children}
+        <ThemeProvider attribute="class" forcedTheme="dark">
+          <Navbar />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );
