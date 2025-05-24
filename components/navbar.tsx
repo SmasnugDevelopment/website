@@ -35,6 +35,7 @@ interface NavbarProps {
   logo?: {
     url: string;
     src: string;
+    mobileSrc: string;
     alt: string;
     title: string;
   };
@@ -55,6 +56,7 @@ const Navbar = ({
   logo = {
     url: "https://www.shadcnblocks.com",
     src: "https://shadcnblocks.com/images/block/logos/shadcnblockscom-icon.svg",
+    mobileSrc: "",
     alt: "logo",
     title: "Shadcnblocks.com",
   },
