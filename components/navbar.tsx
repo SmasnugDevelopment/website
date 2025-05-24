@@ -59,7 +59,7 @@ interface NavbarProps {
 
 const Navbar = ({
   logo = {
-    url: "https://www.shadcnblocks.com",
+    url: "/",
     src: "/logos/horizontal.svg",
     mobileSrc: "/logos/favicon.svg",
     alt: "logo",
@@ -67,8 +67,8 @@ const Navbar = ({
   menu = [
     { title: "Home", url: "#" },
     {
-      title: "Products",
-      url: "#",
+      title: "Gmaes",
+      url: "/gmaes",
       items: [
         {
           title: "Blog",
@@ -98,7 +98,7 @@ const Navbar = ({
       ],
     },
     {
-      title: "Resources",
+      title: "Other Stuff",
       url: "#",
       items: [
         {
@@ -128,11 +128,7 @@ const Navbar = ({
       ],
     },
     {
-      title: "Pricing",
-      url: "#",
-    },
-    {
-      title: "Blog",
+      title: "About Us",
       url: "#",
     },
   ],
