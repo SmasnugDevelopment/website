@@ -39,16 +39,18 @@ interface NavbarProps {
     alt: string;
   };
   menu?: MenuItem[];
-  auth?: {
-    login: {
-      title: string;
-      url: string;
-    };
-    signup: {
-      title: string;
-      url: string;
-    };
-  };
+  buttons?: {
+    title: string;
+    url: string;
+    variant?:
+      | "default"
+      | "destructive"
+      | "outline"
+      | "secondary"
+      | "ghost"
+      | "link";
+    size?: "sm" | "default" | "lg" | "icon";
+  }[];
 }
 
 const Navbar = ({
@@ -130,10 +132,16 @@ const Navbar = ({
       url: "#",
     },
   ],
-  auth = {
-    login: { title: "Login", url: "#" },
-    signup: { title: "Sign up", url: "#" },
-  },
+  buttons = [
+    {
+      title: "Login",
+      url: "#",
+    },
+    {
+      title: "Sign up",
+      url: "#",
+    },
+  ],
 }: NavbarProps) => {
   return (
     <section className="p-4 flex justify-center sticky top-0">
@@ -154,12 +162,16 @@ const Navbar = ({
             </div>
           </div>
           <div className="flex gap-2">
-            <Button asChild variant="outline" size="sm">
-              <a href={auth.login.url}>{auth.login.title}</a>
-            </Button>
-            <Button asChild size="sm">
-              <a href={auth.signup.url}>{auth.signup.title}</a>
-            </Button>
+            {buttons.map((button, index) => (
+              <Button
+                asChild
+                variant={button.variant}
+                size={button.size}
+                key={index}
+              >
+                <a href={button.url}>{button.title}</a>
+              </Button>
+            ))}
           </div>
         </nav>
 
@@ -194,12 +206,16 @@ const Navbar = ({
                   </Accordion>
 
                   <div className="flex flex-col gap-3">
-                    <Button asChild variant="outline">
-                      <a href={auth.login.url}>{auth.login.title}</a>
-                    </Button>
-                    <Button asChild>
-                      <a href={auth.signup.url}>{auth.signup.title}</a>
-                    </Button>
+                    {buttons.map((button, index) => (
+                      <Button
+                        asChild
+                        variant={button.variant}
+                        size={button.size}
+                        key={index}
+                      >
+                        <a href={button.url}>{button.title}</a>
+                      </Button>
+                    ))}
                   </div>
                 </div>
               </SheetContent>
