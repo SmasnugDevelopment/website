@@ -26,7 +26,7 @@ import {
 
 interface MenuItem {
   title: string;
-  url: string;
+  url?: string;
   description?: string;
   icon?: React.ReactNode;
   target?: string;
@@ -68,44 +68,31 @@ const Navbar = ({
     { title: "Home", url: "#" },
     {
       title: "Gmaes",
-      url: "/gmaes",
       items: [
         {
-          title: "Blog",
-          description: "The latest industry news, updates, and info",
-          icon: <Book className="size-5 shrink-0" />,
-          url: "#",
-        },
-        {
-          title: "Company",
-          description: "Our mission is to innovate and empower the world",
-          icon: <Trees className="size-5 shrink-0" />,
-          url: "#",
-        },
-        {
-          title: "Careers",
-          description: "Browse job listing and discover our workspace",
-          icon: <Sunset className="size-5 shrink-0" />,
-          url: "#",
-        },
-        {
-          title: "Support",
-          description:
-            "Get in touch with our support team or visit our community forums",
-          icon: <Zap className="size-5 shrink-0" />,
-          url: "#",
+          title: "View all",
+          url: "/games",
         },
       ],
     },
     {
       title: "Other Stuff",
-      url: "#",
       items: [
         {
           title: "SmasnugType",
           description: "Type smasnug as fast a possible",
           url: "https://type.smasnug.dev",
           target: "_blank",
+        },
+        {
+          title: "Smasbook Calculator",
+          description: "Calculate the Smasbook you have",
+          url: "https://smasbook-calculator.smasnug.dev",
+          target: "_blank",
+        },
+        {
+          title: "View all",
+          url: "/stuff",
         },
       ],
     },
