@@ -141,6 +141,7 @@ const Navbar = ({
       title: "Github",
       url: "https://github.com/SmasnugDevelopment",
       icon: <FaGithub />,
+      target: "_blank",
     },
   ],
 }: NavbarProps) => {
