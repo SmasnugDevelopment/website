@@ -136,7 +136,7 @@ const Navbar = ({
   },
 }: NavbarProps) => {
   return (
-    <section className="p-4 flex justify-center">
+    <section className="p-4 flex justify-center sticky top-0">
       <div className="container">
         {/* Desktop Menu */}
         <nav className="hidden justify-between lg:flex">
