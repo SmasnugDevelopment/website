@@ -143,7 +143,7 @@ const Navbar = ({
           <div className="flex items-center gap-6">
             {/* Logo */}
             <a href={logo.url} className="flex items-center gap-2">
-              <img src={logo.src} className="max-h-8" alt={logo.alt} />
+              <img src={logo.src} className="h-10" alt={logo.alt} />
             </a>
             <div className="flex items-center">
               <NavigationMenu>
@@ -168,7 +168,7 @@ const Navbar = ({
           <div className="flex items-center justify-between">
             {/* Logo */}
             <a href={logo.url} className="flex items-center gap-2">
-              <img src={logo.mobileSrc} className="max-h-8" alt={logo.alt} />
+              <img src={logo.mobileSrc} className="h-10" alt={logo.alt} />
             </a>
             <Sheet>
               <SheetTrigger asChild>
