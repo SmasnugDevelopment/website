@@ -134,12 +134,8 @@ const Navbar = ({
   ],
   buttons = [
     {
-      title: "Login",
-      url: "#",
-    },
-    {
-      title: "Sign up",
-      url: "#",
+      title: "Github",
+      url: "https://github.com/SmasnugDevelopment",
     },
   ],
 }: NavbarProps) => {
