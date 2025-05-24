@@ -54,8 +54,8 @@ interface NavbarProps {
 const Navbar = ({
   logo = {
     url: "https://www.shadcnblocks.com",
-    src: "https://shadcnblocks.com/images/block/logos/shadcnblockscom-icon.svg",
-    mobileSrc: "",
+    src: "/logos/horizontal.svg",
+    mobileSrc: "/logos/favicon.svg",
     alt: "logo",
   },
   menu = [
