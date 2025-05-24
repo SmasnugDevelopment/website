@@ -1,4 +1,5 @@
 import { Book, Menu, Sunset, Trees, Zap } from "lucide-react";
+import { FaGithub } from "react-icons/fa6";
 
 import {
   Accordion,
@@ -28,6 +29,7 @@ interface MenuItem {
   url: string;
   description?: string;
   icon?: React.ReactNode;
+  target?: string;
   items?: MenuItem[];
 }
 
@@ -42,6 +44,7 @@ interface NavbarProps {
   buttons?: {
     title: string;
     url: string;
+    target?: string;
     variant?:
       | "default"
       | "destructive"
@@ -50,6 +53,7 @@ interface NavbarProps {
       | "ghost"
       | "link";
     size?: "sm" | "default" | "lg" | "icon";
+    icon?: React.ReactNode;
   }[];
 }
 
@@ -136,6 +140,7 @@ const Navbar = ({
     {
       title: "Github",
       url: "https://github.com/SmasnugDevelopment",
+      icon: <FaGithub />,
     },
   ],
 }: NavbarProps) => {
@@ -165,7 +170,10 @@ const Navbar = ({
                 size={button.size}
                 key={index}
               >
-                <a href={button.url}>{button.title}</a>
+                <a href={button.url} target={button.target}>
+                  {button.icon}
+                  {button.title}
+                </a>
               </Button>
             ))}
           </div>
@@ -209,7 +217,10 @@ const Navbar = ({
                         size={button.size}
                         key={index}
                       >
-                        <a href={button.url}>{button.title}</a>
+                        <a href={button.url} target={button.target}>
+                          {button.icon}
+                          {button.title}
+                        </a>
                       </Button>
                     ))}
                   </div>
@@ -243,6 +254,7 @@ const renderMenuItem = (item: MenuItem) => {
     <NavigationMenuItem key={item.title}>
       <NavigationMenuLink
         href={item.url}
+        target={item.target}
         className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-muted hover:text-accent-foreground"
       >
         {item.title}
@@ -268,7 +280,12 @@ const renderMobileMenuItem = (item: MenuItem) => {
   }
 
   return (
-    <a key={item.title} href={item.url} className="text-md font-semibold">
+    <a
+      key={item.title}
+      href={item.url}
+      className="text-md font-semibold"
+      target={item.target}
+    >
       {item.title}
     </a>
   );
@@ -279,6 +296,7 @@ const SubMenuLink = ({ item }: { item: MenuItem }) => {
     <a
       className="flex flex-row gap-4 rounded-md p-3 leading-none no-underline transition-colors outline-none select-none hover:bg-muted hover:text-accent-foreground"
       href={item.url}
+      target={item.target}
     >
       <div className="text-foreground">{item.icon}</div>
       <div>
