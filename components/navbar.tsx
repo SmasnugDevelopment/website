@@ -66,7 +66,7 @@ const Navbar = ({
     alt: "logo",
   },
   menu = [
-    { title: "Home", url: "#" },
+    { title: "Home", url: "/" },
     {
       title: "Gmaes",
       items: [
@@ -99,7 +99,7 @@ const Navbar = ({
     },
     {
       title: "About Us",
-      url: "#",
+      url: "/about",
     },
   ],
   buttons = [
