@@ -3,7 +3,7 @@ import { Section } from "lucide-react";
 export default function PrivacyPage() {
   return (
     <section className="p-4 flex justify-center">
-      <div className="prose-invert prose container">
+      <div className="prose-invert prose-base container">
         <h1>Privacy Policy</h1>
         <p>
           At our website, we are committed to protecting your privacy and
