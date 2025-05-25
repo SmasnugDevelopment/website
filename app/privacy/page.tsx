@@ -1,6 +1,5 @@
 "use client";
 
-import { Heading2, Section } from "lucide-react";
 import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
 import { useState } from "react";
