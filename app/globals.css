@@ -208,7 +208,7 @@
         letter-spacing: var(--tracking-normal);
     }
 
-    a {
+    p a {
         text-decoration: underline;
     }
 }
