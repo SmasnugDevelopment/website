@@ -67,10 +67,7 @@ const Footer = ({
     },
   ],
   copyright = "Not affiliated with Samsung Electronics",
-  bottomLinks = [
-    { text: "Terms and Conditions", url: "#" },
-    { text: "Privacy Policy", url: "#" },
-  ],
+  bottomLinks = [{ text: "Privacy Policy", url: "/privacy" }],
 }: FooterProps) => {
   return (
     <section className="pt-32 flex justify-center p-4 pb-8">
