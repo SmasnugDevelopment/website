@@ -4,7 +4,7 @@
 
 import { useEffect, useState } from "react";
 
-export default function Component() {
+export default function GridBackground() {
   const [squares, setSquares] = useState<string[]>([]);
   const [gridSize, setGridSize] = useState({ cols: 0, rows: 0 });
   const [baseColors, setBaseColors] = useState<number[]>([]);
