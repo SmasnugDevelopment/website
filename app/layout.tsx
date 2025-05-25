@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Roboto_Mono } from "next/font/google";
+import { Roboto_Mono, Baskervville } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/navbar";
 import { ThemeProvider } from "@/components/theme-provider";
@@ -7,6 +7,12 @@ import { Footer } from "@/components/footer";
 
 const robotoMono = Roboto_Mono({
   subsets: ["latin"],
+});
+
+const boringLegalFont = Baskervville({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-boring-legal",
 });
 
 export const metadata: Metadata = {
@@ -21,7 +27,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${robotoMono.className} antialiased`}>
+      <body
+        className={`${robotoMono.className} ${boringLegalFont.variable} antialiased`}
+      >
         <ThemeProvider attribute="class" forcedTheme="dark">
           <Navbar />
           {children}

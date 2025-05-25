@@ -5,13 +5,19 @@ import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
 import { useState } from "react";
 import Link from "next/link";
+import clsx from "clsx";
 
 export default function PrivacyPage() {
   let [legalMode, setLegalMode] = useState(false);
 
   return (
     <section className="p-4 flex justify-center">
-      <div className="prose-invert prose-base container">
+      <div
+        className={clsx(
+          "prose-invert prose-lg container",
+          legalMode && "font-[family-name:var(--font-boring-legal)]",
+        )}
+      >
         <div className="flex items-center space-x-2 mb-4">
           <Switch
             id="legal-mode"
