@@ -16,6 +16,7 @@ export default function Home() {
           secondary: {
             text: "Github",
             url: "https://github.com/smasnugdevelopment",
+            target: "_blank",
           },
         }}
         image={{ src: "/logos/maskable.svg", alt: "Logo" }}
