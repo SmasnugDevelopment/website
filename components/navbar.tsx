@@ -249,7 +249,7 @@ const renderMobileMenuItem = (item: MenuItem) => {
   return (
     <Link
       key={item.title}
-      href={item.url}
+      href={item.url || "#"}
       className="text-md font-semibold"
       target={item.target}
     >
@@ -262,7 +262,7 @@ const SubMenuLink = ({ item }: { item: MenuItem }) => {
   return (
     <Link
       className="flex flex-row gap-4 rounded-md p-3 leading-none no-underline transition-colors outline-none select-none hover:bg-muted hover:text-accent-foreground"
-      href={item.url}
+      href={item.url || "#"}
       target={item.target}
     >
       <div className="text-foreground">{item.icon}</div>
