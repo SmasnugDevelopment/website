@@ -11,11 +11,6 @@ export default function GridBackground() {
   const [currentColors, setCurrentColors] = useState<string[]>([]);
   const gridBackground = useRef<HTMLDivElement>(null);
 
-  const generateRandomGray = () => {
-    const grayValue = Math.floor(Math.random() * 65); // 0-64 for darker grays
-    return `rgb(${grayValue}, ${grayValue}, ${grayValue})`;
-  };
-
   const generateBrighterGray = (baseValue: number) => {
     const variation = Math.floor(Math.random() * 40) - 20; // -20 to +20 variation
     const newValue = Math.max(0, Math.min(80, baseValue + variation));
@@ -70,7 +65,7 @@ export default function GridBackground() {
 
     const totalSquares = cols * rows;
     const newBaseColors = Array.from({ length: totalSquares }, () =>
-      Math.floor(Math.random() * 65),
+      Math.floor(Math.random() * 30),
     );
     const newSquares = newBaseColors.map(
       (value) => `rgb(${value}, ${value}, ${value})`,
