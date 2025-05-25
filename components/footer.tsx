@@ -3,6 +3,7 @@ interface MenuItem {
   links: {
     text: string;
     url: string;
+    target?: string;
   }[];
 }
 
@@ -11,9 +12,7 @@ interface FooterProps {
     url: string;
     src: string;
     alt: string;
-    title: string;
   };
-  tagline?: string;
   menuItems?: MenuItem[];
   copyright?: string;
   bottomLinks?: {
@@ -24,76 +23,64 @@ interface FooterProps {
 
 const Footer = ({
   logo = {
-    src: "https://shadcnblocks.com/images/block/block-1.svg",
-    alt: "blocks for shadcn/ui",
-    title: "Shadcnblocks.com",
-    url: "https://www.shadcnblocks.com",
+    src: "/logos/horizontal.svg",
+    alt: "Smasnug Development",
+    url: "/",
   },
-  tagline = "Components made easy.",
   menuItems = [
     {
-      title: "Product",
+      title: "Stuff",
       links: [
-        { text: "Overview", url: "#" },
-        { text: "Pricing", url: "#" },
-        { text: "Marketplace", url: "#" },
-        { text: "Features", url: "#" },
-        { text: "Integrations", url: "#" },
-        { text: "Pricing", url: "#" },
+        { text: "Gmaes", url: "/gmaes" },
+        { text: "Other", url: "/stuff" },
       ],
     },
     {
       title: "Company",
       links: [
-        { text: "About", url: "#" },
-        { text: "Team", url: "#" },
-        { text: "Blog", url: "#" },
-        { text: "Careers", url: "#" },
-        { text: "Contact", url: "#" },
-        { text: "Privacy", url: "#" },
+        { text: "About", url: "/about" },
+        { text: "Contact", url: "/contact" },
       ],
     },
     {
-      title: "Resources",
+      title: "Team",
       links: [
-        { text: "Help", url: "#" },
-        { text: "Sales", url: "#" },
-        { text: "Advertise", url: "#" },
+        { text: "Ingo Wolf", url: "https://ingo.au", target: "_blank" },
+        {
+          text: "Bombrrr",
+          url: "https://github.com/bombrrr",
+          target: "_blank",
+        },
       ],
     },
     {
       title: "Social",
       links: [
-        { text: "Twitter", url: "#" },
-        { text: "Instagram", url: "#" },
-        { text: "LinkedIn", url: "#" },
+        {
+          text: "Github",
+          url: "https://github.com/smasnugdevelopment",
+          target: "_blank",
+        },
       ],
     },
   ],
-  copyright = "© 2024 Shadcnblocks.com. All rights reserved.",
+  copyright = "Not affiliated with Samsung Electronics",
   bottomLinks = [
     { text: "Terms and Conditions", url: "#" },
     { text: "Privacy Policy", url: "#" },
   ],
 }: FooterProps) => {
   return (
-    <section className="py-32">
+    <section className="pt-32 flex justify-center p-4 pb-8">
       <div className="container">
         <footer>
           <div className="grid grid-cols-2 gap-8 lg:grid-cols-6">
             <div className="col-span-2 mb-8 lg:mb-0">
               <div className="flex items-center gap-2 lg:justify-start">
                 <a href="https://shadcnblocks.com">
-                  <img
-                    src={logo.src}
-                    alt={logo.alt}
-                    title={logo.title}
-                    className="h-10"
-                  />
+                  <img src={logo.src} alt={logo.alt} className="h-20" />
                 </a>
-                <p className="text-xl font-semibold">{logo.title}</p>
               </div>
-              <p className="mt-4 font-bold">{tagline}</p>
             </div>
             {menuItems.map((section, sectionIdx) => (
               <div key={sectionIdx}>
@@ -104,7 +91,9 @@ const Footer = ({
                       key={linkIdx}
                       className="font-medium hover:text-primary"
                     >
-                      <a href={link.url}>{link.text}</a>
+                      <a href={link.url} target={link.target}>
+                        {link.text}
+                      </a>
                     </li>
                   ))}
                 </ul>
