@@ -88,7 +88,7 @@ const Hero1 = ({
           <img
             src={image.src}
             alt={image.alt}
-            className="max-h-96 w-full rounded-md object-cover"
+            className="max-h-96 w-full rounded-md object-cover -order-1 lg:order-2"
           />
         </div>
       </div>
