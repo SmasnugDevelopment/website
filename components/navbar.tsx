@@ -72,7 +72,7 @@ const Navbar = ({
       items: [
         {
           title: "View all",
-          url: "/games",
+          url: "/gmaes",
         },
       ],
     },
