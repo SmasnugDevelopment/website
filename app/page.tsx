@@ -1,3 +1,4 @@
+import GridBackground from "@/components/grid-background";
 import { Hero1 } from "@/components/hero1";
 
 export default function Home() {
@@ -20,6 +21,7 @@ export default function Home() {
         }}
         image={{ src: "/logos/maskable.svg", alt: "Logo" }}
       />
+      <GridBackground />
     </>
   );
 }
