@@ -8,6 +8,7 @@ export default function GridBackground({
   generationMultiplier = 40,
   generationAdd = 20,
   className = "fixed w-full h-full inset-0 overflow-hidden -z-10",
+  cellSize = 60,
   animationInterval = 100,
 }) {
   const [squares, setSquares] = useState<string[]>([]);
@@ -29,36 +30,16 @@ export default function GridBackground({
       const width = gridBounding.width;
       const height = gridBounding.height;
 
-      // Square size based on screen size
-      let squareSize = 60;
-      if (width < 640)
-        squareSize = 40; // mobile
-      else if (width < 1024)
-        squareSize = 50; // tablet
-      else if (width < 1536)
-        squareSize = 60; // desktop
-      else squareSize = 80; // large desktop
-
-      const cols = Math.ceil(width / squareSize);
-      const rows = Math.ceil(height / squareSize);
+      const cols = Math.ceil(width / cellSize);
+      const rows = Math.ceil(height / cellSize);
 
       return { cols, rows };
     } else {
       const width = window.innerWidth;
       const height = window.innerHeight;
 
-      // Square size based on screen size
-      let squareSize = 60;
-      if (width < 640)
-        squareSize = 40; // mobile
-      else if (width < 1024)
-        squareSize = 50; // tablet
-      else if (width < 1536)
-        squareSize = 60; // desktop
-      else squareSize = 80; // large desktop
-
-      const cols = Math.ceil(width / squareSize);
-      const rows = Math.ceil(height / squareSize);
+      const cols = Math.ceil(width / cellSize);
+      const rows = Math.ceil(height / cellSize);
 
       return { cols, rows };
     }
