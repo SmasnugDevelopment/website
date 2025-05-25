@@ -6,7 +6,7 @@ interface MenuItem {
   }[];
 }
 
-interface Footer2Props {
+interface FooterProps {
   logo?: {
     url: string;
     src: string;
@@ -22,7 +22,7 @@ interface Footer2Props {
   }[];
 }
 
-const Footer2 = ({
+const Footer = ({
   logo = {
     src: "https://shadcnblocks.com/images/block/block-1.svg",
     alt: "blocks for shadcn/ui",
@@ -75,7 +75,7 @@ const Footer2 = ({
     { text: "Terms and Conditions", url: "#" },
     { text: "Privacy Policy", url: "#" },
   ],
-}: Footer2Props) => {
+}: FooterProps) => {
   return (
     <section className="py-32">
       <div className="container">
@@ -127,4 +127,4 @@ const Footer2 = ({
   );
 };
 
-export { Footer2 };
+export { Footer };
