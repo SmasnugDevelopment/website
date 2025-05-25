@@ -52,7 +52,7 @@ export default function PrivacyPage() {
             <h2>Contacting us</h2>
             <ul>
               <li>
-                <Link href="/contact">Here you go</Link>
+                <Link href="/contact">Here</Link> you go
               </li>
             </ul>
           </>
