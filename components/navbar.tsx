@@ -1,6 +1,9 @@
+"use client";
+
 import { Menu } from "lucide-react";
 import { FaGithub } from "react-icons/fa6";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 import {
   Accordion,
@@ -111,8 +114,33 @@ const Navbar = ({
     },
   ],
 }: NavbarProps) => {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      if (scrollPosition > 0) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    // Initial check
+    handleScroll();
+
+    // Cleanup
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <section className="p-4 flex justify-center sticky top-0">
+    <section
+      className={`p-4 flex justify-center sticky top-0 transition-colors duration-200 ${isScrolled ? "bg-background" : ""}`}
+    >
       <div className="container">
         {/* Desktop Menu */}
         <nav className="hidden justify-between lg:flex">
