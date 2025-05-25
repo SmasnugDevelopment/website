@@ -37,16 +37,28 @@ export default function PrivacyPage() {
           <>
             <h2>What we do</h2>
             <ul>
-              <li>We use posthog for analytics</li>
               <li>
-                This website is hosted on Cloudflare and they collect analytics
-                data as well
+                We use{" "}
+                <Link href="https://posthog.com/" target="_blank">
+                  Posthog
+                </Link>{" "}
+                for analytics
+              </li>
+              <li>
+                This website is hosted on{" "}
+                <Link href="https://www.cloudflare.com/" target="_blank">
+                  Cloudflare
+                </Link>{" "}
+                and they collect analytics data as well
               </li>
             </ul>
             <h2>What we don't do</h2>
             <ul>
               <li>We don't sell your data</li>
-              <li>We don't share your data</li>
+              <li>
+                We don't directly share your data (ie. Cloudflare may, refer to
+                their privacy policy)
+              </li>
             </ul>
             <h2>Other stuff</h2>
             <ul>
