@@ -208,7 +208,13 @@
         letter-spacing: var(--tracking-normal);
     }
 
-    p a {
+    p a,
+    div.prose a,
+    div.prose-sm a,
+    div.prose-base a,
+    div.prose-lg a,
+    div.prose-xl a,
+    div.prose-2xl a {
         text-decoration: underline;
     }
 }
