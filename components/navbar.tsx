@@ -1,5 +1,6 @@
 import { Menu } from "lucide-react";
 import { FaGithub } from "react-icons/fa6";
+import Link from "next/link";
 
 import {
   Accordion,
@@ -117,9 +118,9 @@ const Navbar = ({
         <nav className="hidden justify-between lg:flex">
           <div className="flex items-center gap-6">
             {/* Logo */}
-            <a href={logo.url} className="flex items-center gap-2">
+            <Link href={logo.url} className="flex items-center gap-2">
               <img src={logo.src} className="h-10" alt={logo.alt} />
-            </a>
+            </Link>
             <div className="flex items-center">
               <NavigationMenu>
                 <NavigationMenuList>
@@ -136,10 +137,10 @@ const Navbar = ({
                 size={button.size}
                 key={index}
               >
-                <a href={button.url} target={button.target}>
+                <Link href={button.url} target={button.target}>
                   {button.icon}
                   {button.title}
-                </a>
+                </Link>
               </Button>
             ))}
           </div>
@@ -149,9 +150,9 @@ const Navbar = ({
         <div className="block lg:hidden">
           <div className="flex items-center justify-between">
             {/* Logo */}
-            <a href={logo.url} className="flex items-center gap-2">
+            <Link href={logo.url} className="flex items-center gap-2">
               <img src={logo.mobileSrc} className="h-10" alt={logo.alt} />
-            </a>
+            </Link>
             <Sheet>
               <SheetTrigger asChild>
                 <Button variant="outline" size="icon">
@@ -161,9 +162,9 @@ const Navbar = ({
               <SheetContent className="overflow-y-auto">
                 <SheetHeader>
                   <SheetTitle>
-                    <a href={logo.url} className="flex items-center gap-2">
+                    <Link href={logo.url} className="flex items-center gap-2">
                       <img src={logo.src} className="max-h-8" alt={logo.alt} />
-                    </a>
+                    </Link>
                   </SheetTitle>
                 </SheetHeader>
                 <div className="flex flex-col gap-6 p-4">
@@ -183,10 +184,10 @@ const Navbar = ({
                         size={button.size}
                         key={index}
                       >
-                        <a href={button.url} target={button.target}>
+                        <Link href={button.url} target={button.target}>
                           {button.icon}
                           {button.title}
-                        </a>
+                        </Link>
                       </Button>
                     ))}
                   </div>
@@ -246,20 +247,20 @@ const renderMobileMenuItem = (item: MenuItem) => {
   }
 
   return (
-    <a
+    <Link
       key={item.title}
       href={item.url}
       className="text-md font-semibold"
       target={item.target}
     >
       {item.title}
-    </a>
+    </Link>
   );
 };
 
 const SubMenuLink = ({ item }: { item: MenuItem }) => {
   return (
-    <a
+    <Link
       className="flex flex-row gap-4 rounded-md p-3 leading-none no-underline transition-colors outline-none select-none hover:bg-muted hover:text-accent-foreground"
       href={item.url}
       target={item.target}
@@ -273,7 +274,7 @@ const SubMenuLink = ({ item }: { item: MenuItem }) => {
           </p>
         )}
       </div>
-    </a>
+    </Link>
   );
 };
 
