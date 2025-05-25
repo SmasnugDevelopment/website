@@ -1,5 +1,5 @@
 import { ArrowRight, ArrowUpRight } from "lucide-react";
-
+import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 
@@ -64,23 +64,23 @@ const Hero1 = ({
             <div className="flex w-full flex-col justify-center gap-2 sm:flex-row lg:justify-start">
               {buttons.primary && (
                 <Button asChild className="w-full sm:w-auto">
-                  <a
+                  <Link
                     href={buttons.primary.url}
                     target={buttons.primary.target || "_self"}
                   >
                     {buttons.primary.text}
-                  </a>
+                  </Link>
                 </Button>
               )}
               {buttons.secondary && (
                 <Button asChild variant="outline" className="w-full sm:w-auto">
-                  <a
+                  <Link
                     href={buttons.secondary.url}
                     target={buttons.secondary.target || "_self"}
                   >
                     {buttons.secondary.text}
                     <ArrowRight className="size-4" />
-                  </a>
+                  </Link>
                 </Button>
               )}
             </div>
