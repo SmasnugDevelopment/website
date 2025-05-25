@@ -2,13 +2,14 @@
 
 // Thanks v0 :)
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function GridBackground() {
   const [squares, setSquares] = useState<string[]>([]);
   const [gridSize, setGridSize] = useState({ cols: 0, rows: 0 });
   const [baseColors, setBaseColors] = useState<number[]>([]);
   const [currentColors, setCurrentColors] = useState<string[]>([]);
+  const gridBackground = useRef<HTMLDivElement>(null);
 
   const generateRandomGray = () => {
     const grayValue = Math.floor(Math.random() * 65); // 0-64 for darker grays
@@ -22,23 +23,45 @@ export default function GridBackground() {
   };
 
   const calculateGridSize = () => {
-    const width = window.innerWidth;
-    const height = window.innerHeight;
+    if (gridBackground.current) {
+      const gridBounding = gridBackground.current?.getBoundingClientRect();
 
-    // Square size based on screen size
-    let squareSize = 60;
-    if (width < 640)
-      squareSize = 40; // mobile
-    else if (width < 1024)
-      squareSize = 50; // tablet
-    else if (width < 1536)
-      squareSize = 60; // desktop
-    else squareSize = 80; // large desktop
+      const width = gridBounding.width;
+      const height = gridBounding.height;
 
-    const cols = Math.ceil(width / squareSize);
-    const rows = Math.ceil(height / squareSize);
+      // Square size based on screen size
+      let squareSize = 60;
+      if (width < 640)
+        squareSize = 40; // mobile
+      else if (width < 1024)
+        squareSize = 50; // tablet
+      else if (width < 1536)
+        squareSize = 60; // desktop
+      else squareSize = 80; // large desktop
 
-    return { cols, rows };
+      const cols = Math.ceil(width / squareSize);
+      const rows = Math.ceil(height / squareSize);
+
+      return { cols, rows };
+    } else {
+      const width = window.innerWidth;
+      const height = window.innerHeight;
+
+      // Square size based on screen size
+      let squareSize = 60;
+      if (width < 640)
+        squareSize = 40; // mobile
+      else if (width < 1024)
+        squareSize = 50; // tablet
+      else if (width < 1536)
+        squareSize = 60; // desktop
+      else squareSize = 80; // large desktop
+
+      const cols = Math.ceil(width / squareSize);
+      const rows = Math.ceil(height / squareSize);
+
+      return { cols, rows };
+    }
   };
 
   const generateSquares = () => {
@@ -89,7 +112,10 @@ export default function GridBackground() {
   }, [baseColors]);
 
   return (
-    <div className="fixed inset-0 w-full h-full overflow-hidden">
+    <div
+      className="fixed inset-0 w-full h-[50%] overflow-hidden -z-10"
+      ref={gridBackground}
+    >
       <div
         className="w-full h-full grid gap-0"
         style={{
