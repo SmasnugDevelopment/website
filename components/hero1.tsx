@@ -63,22 +63,21 @@ const Hero1 = ({
             </p>
             <div className="flex w-full flex-col justify-center gap-2 sm:flex-row lg:justify-start">
               {buttons.primary && (
-                <Button
-                  asChild
-                  className="w-full sm:w-auto"
-                  target={buttons.primary.target || "_self"}
-                >
-                  <a href={buttons.primary.url}>{buttons.primary.text}</a>
+                <Button asChild className="w-full sm:w-auto">
+                  <a
+                    href={buttons.primary.url}
+                    target={buttons.primary.target || "_self"}
+                  >
+                    {buttons.primary.text}
+                  </a>
                 </Button>
               )}
               {buttons.secondary && (
-                <Button
-                  asChild
-                  variant="outline"
-                  className="w-full sm:w-auto"
-                  target={buttons.secondary.target || "_self"}
-                >
-                  <a href={buttons.secondary.url}>
+                <Button asChild variant="outline" className="w-full sm:w-auto">
+                  <a
+                    href={buttons.secondary.url}
+                    target={buttons.secondary.target || "_self"}
+                  >
                     {buttons.secondary.text}
                     <ArrowRight className="size-4" />
                   </a>
