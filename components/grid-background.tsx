@@ -4,17 +4,22 @@
 
 import { useEffect, useRef, useState } from "react";
 
-export default function GridBackground() {
+export default function GridBackground({
+  generationMultiplier = 40,
+  generationAdd = 20,
+  className = "fixed w-full h-full inset-0 overflow-hidden -z-10",
+  animationInterval = 100,
+}) {
   const [squares, setSquares] = useState<string[]>([]);
   const [gridSize, setGridSize] = useState({ cols: 0, rows: 0 });
   const [baseColors, setBaseColors] = useState<number[]>([]);
   const [currentColors, setCurrentColors] = useState<string[]>([]);
   const gridBackground = useRef<HTMLDivElement>(null);
 
-  const generateBrighterGray = (baseValue: number) => {
-    const variation = Math.floor(Math.random() * 40) - 20; // -20 to +20 variation
-    const newValue = Math.max(0, Math.min(80, baseValue + variation));
-    return `rgb(${newValue}, ${newValue}, ${newValue})`;
+  const generateColor = () => {
+    const value =
+      Math.floor(Math.random() * generationMultiplier) + generationAdd;
+    return `rgb(${value}, ${value}, ${value})`;
   };
 
   const calculateGridSize = () => {
@@ -64,14 +69,10 @@ export default function GridBackground() {
     setGridSize({ cols, rows });
 
     const totalSquares = cols * rows;
-    const newBaseColors = Array.from({ length: totalSquares }, () =>
-      Math.floor(Math.random() * 30),
-    );
-    const newSquares = newBaseColors.map(
-      (value) => `rgb(${value}, ${value}, ${value})`,
-    );
+    const defaultColor = "rgb(0, 0, 0)";
+    const newSquares = Array(totalSquares).fill(defaultColor);
 
-    setBaseColors(newBaseColors);
+    setBaseColors(Array(totalSquares).fill(0));
     setSquares(newSquares);
     setCurrentColors(newSquares);
   };
@@ -95,22 +96,19 @@ export default function GridBackground() {
         prevColors.map((_, index) => {
           // Only animate random squares (about 10% each cycle)
           if (Math.random() < 0.1) {
-            return generateBrighterGray(baseColors[index]);
+            return generateColor();
           }
           return prevColors[index];
         }),
       );
     };
 
-    const interval = setInterval(animateSquares, 200); // Update every 200ms
+    const interval = setInterval(animateSquares, animationInterval); // Update every 200ms
     return () => clearInterval(interval);
   }, [baseColors]);
 
   return (
-    <div
-      className="fixed inset-0 w-full h-[50%] overflow-hidden -z-10"
-      ref={gridBackground}
-    >
+    <div className={className} ref={gridBackground}>
       <div
         className="w-full h-full grid gap-0"
         style={{
