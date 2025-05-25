@@ -3,7 +3,7 @@
 import { Menu } from "lucide-react";
 import { FaGithub } from "react-icons/fa6";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 import {
   Accordion,
@@ -115,18 +115,33 @@ const Navbar = ({
   ],
 }: NavbarProps) => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const lastScrollY = useRef(0);
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollPosition = window.scrollY;
-      if (scrollPosition > 0) {
+      const currentScrollY = window.scrollY;
+      
+      // Check if scrolled from top
+      if (currentScrollY > 0) {
         setIsScrolled(true);
       } else {
         setIsScrolled(false);
       }
+      
+      // Determine scroll direction
+      if (currentScrollY > lastScrollY.current && currentScrollY > 80) {
+        // Scrolling down and past threshold
+        setIsVisible(false);
+      } else {
+        // Scrolling up or at the top
+        setIsVisible(true);
+      }
+      
+      lastScrollY.current = currentScrollY;
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
 
     // Initial check
     handleScroll();
@@ -139,7 +154,11 @@ const Navbar = ({
 
   return (
     <section
-      className={`p-4 flex justify-center sticky top-0 transition-colors duration-200 ${isScrolled ? "bg-background" : ""}`}
+      className={`p-4 flex justify-center sticky top-0 transition-all duration-300 ${
+        isScrolled ? "bg-background shadow-sm" : ""
+      } ${
+        isVisible ? "translate-y-0" : "-translate-y-full"
+      }`}
     >
       <div className="container">
         {/* Desktop Menu */}
