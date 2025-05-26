@@ -1,13 +1,4 @@
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Button, type buttonVariants } from "@/components/ui/button";
-import Link from "next/link";
+import Cards from "@/components/cards";
 
 export default function StuffPage() {
   const gmaes: {
@@ -32,26 +23,7 @@ export default function StuffPage() {
       <div className="container flex flex-col gap-4">
         <h1 className="text-4xl">Gmaes</h1>
         <p>Mostly in Godot</p>
-        <div className="grid md:grid-cols-3 grid-cols-1 gap-4">
-          Coming soon™
-          {gmaes.map((thing) => (
-            <Card>
-              <CardHeader>
-                <CardTitle>{thing.name}</CardTitle>
-                <CardDescription>{thing.description}</CardDescription>
-              </CardHeader>
-              <CardFooter className="flex flex-row gap-1">
-                {thing.links?.map((link) => (
-                  <Button key={link.name} variant={link.variant}>
-                    <Link href={link.url} target={link.target}>
-                      {link.name}
-                    </Link>
-                  </Button>
-                ))}
-              </CardFooter>
-            </Card>
-          ))}
-        </div>
+        <Cards cards={[]} />
       </div>
     </section>
   );
