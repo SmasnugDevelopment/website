@@ -6,7 +6,7 @@ export default function StuffPage() {
       <div className="container flex flex-col gap-4">
         <h1 className="text-4xl">Gmaes</h1>
         <p>Mostly in Godot</p>
-        <Cards cards={[]} />
+        <Cards cards={[{ name: "Coming soon™" }]} />
       </div>
     </section>
   );
