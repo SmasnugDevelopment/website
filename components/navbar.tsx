@@ -72,6 +72,9 @@ const Navbar = ({
       title: "Gmaes",
       items: [
         {
+          title: "Coming soon™",
+        },
+        {
           title: "View all",
           url: "/gmaes",
         },
@@ -112,8 +115,6 @@ const Navbar = ({
     },
   ],
 }: NavbarProps) => {
-
-
   return (
     <NavbarScroll>
       <div className="container">
