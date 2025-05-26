@@ -4,6 +4,7 @@ import "./globals.css";
 import { Navbar } from "@/components/navbar";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Footer } from "@/components/footer";
+import { PostHogProvider } from "@/components/PostHogProvider";
 
 const robotoMono = Roboto_Mono({
   subsets: ["latin"],
@@ -30,11 +31,13 @@ export default function RootLayout({
       <body
         className={`${robotoMono.className} ${boringLegalFont.variable} antialiased`}
       >
-        <ThemeProvider attribute="class" forcedTheme="dark">
-          <Navbar />
-          {children}
-          <Footer />
-        </ThemeProvider>
+        <PostHogProvider>
+          <ThemeProvider attribute="class" forcedTheme="dark">
+            <Navbar />
+            {children}
+            <Footer />
+          </ThemeProvider>
+        </PostHogProvider>
       </body>
     </html>
   );
