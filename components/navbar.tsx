@@ -1,6 +1,7 @@
 import { Menu } from "lucide-react";
 import { FaGithub } from "react-icons/fa6";
 import Link from "next/link";
+import Image from "next/image";
 import { NavbarScroll } from "./navbar-scroll";
 
 import {
@@ -123,7 +124,7 @@ const Navbar = ({
           <div className="flex items-center gap-6">
             {/* Logo */}
             <Link href={logo.url} className="flex items-center gap-2">
-              <img src={logo.src} className="h-10" alt={logo.alt} />
+              <Image src={logo.src} className="h-10" alt={logo.alt} />
             </Link>
             <div className="flex items-center">
               <NavigationMenu>
@@ -155,7 +156,7 @@ const Navbar = ({
           <div className="flex items-center justify-between">
             {/* Logo */}
             <Link href={logo.url} className="flex items-center gap-2">
-              <img src={logo.mobileSrc} className="h-10" alt={logo.alt} />
+              <Image src={logo.mobileSrc} className="h-10" alt={logo.alt} />
             </Link>
             <Sheet>
               <SheetTrigger asChild>
@@ -167,7 +168,11 @@ const Navbar = ({
                 <SheetHeader>
                   <SheetTitle>
                     <Link href={logo.url} className="flex items-center gap-2">
-                      <img src={logo.src} className="max-h-8" alt={logo.alt} />
+                      <Image
+                        src={logo.src}
+                        className="max-h-8"
+                        alt={logo.alt}
+                      />
                     </Link>
                   </SheetTitle>
                 </SheetHeader>
