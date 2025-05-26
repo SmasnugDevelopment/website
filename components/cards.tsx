@@ -11,7 +11,7 @@ import Link from "next/link";
 
 interface CardItem {
   name: string;
-  description: string;
+  description?: string;
   links?: {
     name: string;
     url: string;
