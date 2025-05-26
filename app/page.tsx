@@ -23,7 +23,6 @@ export default function Home() {
             target: "_blank",
           },
         }}
-        image={{ src: "/logos/maskable.svg", alt: "Logo" }}
       />
     </>
   );

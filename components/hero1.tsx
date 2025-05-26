@@ -19,10 +19,6 @@ interface Hero1Props {
       target?: string;
     };
   };
-  image: {
-    src: string;
-    alt: string;
-  };
 }
 
 const Hero1 = ({
@@ -38,10 +34,6 @@ const Hero1 = ({
       text: "View on GitHub",
       url: "https://www.shadcnblocks.com",
     },
-  },
-  image = {
-    src: "https://www.shadcnblocks.com/images/block/placeholder-1.svg",
-    alt: "Hero section demo image showing interface components",
   },
 }: Hero1Props) => {
   return (
@@ -85,11 +77,6 @@ const Hero1 = ({
               )}
             </div>
           </div>
-          <img
-            src={image.src}
-            alt={image.alt}
-            className="max-h-96 w-full rounded-md object-cover -order-1 lg:order-2"
-          />
         </div>
       </div>
     </section>
