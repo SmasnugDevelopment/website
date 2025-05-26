@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 interface MenuItem {
@@ -77,7 +78,7 @@ const Footer = ({
             <div className="col-span-2 mb-8 lg:mb-0">
               <div className="flex items-center gap-2 lg:justify-start">
                 <Link href="/">
-                  <img src={logo.src} alt={logo.alt} className="h-20" />
+                  <Image src={logo.src} alt={logo.alt} className="h-20" />
                 </Link>
               </div>
             </div>
