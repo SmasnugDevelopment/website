@@ -14,14 +14,14 @@ const NavbarScroll = ({ children }: NavbarScrollProps) => {
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-      
+
       // Check if scrolled from top
       if (currentScrollY > 0) {
         setIsScrolled(true);
       } else {
         setIsScrolled(false);
       }
-      
+
       // Determine scroll direction
       if (currentScrollY > lastScrollY.current && currentScrollY > 80) {
         // Scrolling down and past threshold
@@ -30,7 +30,7 @@ const NavbarScroll = ({ children }: NavbarScrollProps) => {
         // Scrolling up or at the top
         setIsVisible(true);
       }
-      
+
       lastScrollY.current = currentScrollY;
     };
 
@@ -48,10 +48,8 @@ const NavbarScroll = ({ children }: NavbarScrollProps) => {
   return (
     <section
       className={`p-4 flex justify-center sticky top-0 transition-all duration-300 ${
-        isScrolled ? "bg-background shadow-sm" : ""
-      } ${
-        isVisible ? "translate-y-0" : "-translate-y-full"
-      }`}
+        isScrolled ? "bg-background/50 backdrop-blur-sm shadow-sm" : ""
+      } ${isVisible ? "translate-y-0" : "-translate-y-full"}`}
     >
       {children}
     </section>
