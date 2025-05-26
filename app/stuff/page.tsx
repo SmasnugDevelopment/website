@@ -4,7 +4,7 @@ export default function StuffPage() {
   return (
     <section className="flex justify-center p-4">
       <div className="container flex flex-col gap-4">
-        <h1 className="text-4xl">Stuff</h1>
+        <h1 className="text-5xl">Stuff</h1>
         <p>Basically anything that isn't a gmae is chucked in here</p>
         <Cards
           cards={[
