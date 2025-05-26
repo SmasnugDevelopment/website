@@ -27,13 +27,13 @@ interface CardItem {
 }
 
 interface CardsProps {
-  stuffs: CardItem[];
+  cards: CardItem[];
 }
 
-export default function Cards({ stuffs }: CardsProps) {
+export default function Cards({ cards }: CardsProps) {
   return (
     <div className="grid md:grid-cols-3 grid-cols-1 gap-4">
-      {stuffs.map((thing, index) => (
+      {cards.map((thing, index) => (
         <Card key={index}>
           <CardHeader>
             <CardTitle>{thing.name}</CardTitle>
