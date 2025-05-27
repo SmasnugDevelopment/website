@@ -69,20 +69,20 @@ const Navbar = ({
   },
   menu = [
     { title: "Home", url: "/" },
+    // {
+    //   title: "Gmaes",
+    //   items: [
+    //     {
+    //       title: "Coming soon™",
+    //     },
+    //     {
+    //       title: "View all",
+    //       url: "/gmaes",
+    //     },
+    //   ],
+    // },
     {
-      title: "Gmaes",
-      items: [
-        {
-          title: "Coming soon™",
-        },
-        {
-          title: "View all",
-          url: "/gmaes",
-        },
-      ],
-    },
-    {
-      title: "Other Stuff",
+      title: "Our Stuff",
       items: [
         {
           title: "SmasnugType",

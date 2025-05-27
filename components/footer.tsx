@@ -32,10 +32,10 @@ const Footer = ({
   },
   menuItems = [
     {
-      title: "Stuff",
+      title: "Our Stuff",
       links: [
-        { text: "Gmaes", url: "/gmaes" },
-        { text: "Other", url: "/stuff" },
+        { text: "Everything", url: "/stuff" },
+        { text: "More soon", url: "" },
       ],
     },
     {
