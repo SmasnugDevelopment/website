@@ -63,8 +63,8 @@ interface NavbarProps {
 const Navbar = ({
   logo = {
     url: "/",
-    src: "/logos/horizontal.svg",
-    mobileSrc: "/logos/favicon.svg",
+    src: "/logos/horizontal.png",
+    mobileSrc: "/logos/favicon.png",
     alt: "logo",
   },
   menu = [
@@ -124,7 +124,13 @@ const Navbar = ({
           <div className="flex items-center gap-6">
             {/* Logo */}
             <Link href={logo.url} className="flex items-center gap-2">
-              <Image src={logo.src} className="h-10" alt={logo.alt} />
+              <Image
+                width={1000}
+                height={280}
+                src={logo.src}
+                className="h-10 w-full"
+                alt={logo.alt}
+              />
             </Link>
             <div className="flex items-center">
               <NavigationMenu>
@@ -156,7 +162,13 @@ const Navbar = ({
           <div className="flex items-center justify-between">
             {/* Logo */}
             <Link href={logo.url} className="flex items-center gap-2">
-              <Image src={logo.mobileSrc} className="h-10" alt={logo.alt} />
+              <Image
+                width={400}
+                height={400}
+                src={logo.mobileSrc}
+                className="h-10 w-full"
+                alt={logo.alt}
+              />
             </Link>
             <Sheet>
               <SheetTrigger asChild>
