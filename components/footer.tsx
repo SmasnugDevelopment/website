@@ -26,16 +26,16 @@ interface FooterProps {
 
 const Footer = ({
   logo = {
-    src: "/logos/horizontal.svg",
+    src: "/logos/horizontal.png",
     alt: "Smasnug Development",
     url: "/",
   },
   menuItems = [
     {
-      title: "Stuff",
+      title: "Our Stuff",
       links: [
-        { text: "Gmaes", url: "/gmaes" },
-        { text: "Other", url: "/stuff" },
+        { text: "Everything", url: "/stuff" },
+        { text: "More soon", url: "" },
       ],
     },
     {
@@ -78,7 +78,13 @@ const Footer = ({
             <div className="col-span-2 mb-8 lg:mb-0">
               <div className="flex items-center gap-2 lg:justify-start">
                 <Link href="/">
-                  <Image src={logo.src} alt={logo.alt} className="h-20" />
+                  <Image
+                    width={1000}
+                    height={280}
+                    src={logo.src}
+                    alt={logo.alt}
+                    className="h-20 w-full"
+                  />
                 </Link>
               </div>
             </div>

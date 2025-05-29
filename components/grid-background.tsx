@@ -100,7 +100,7 @@ export default function GridBackground({
         {currentColors.map((color, index) => (
           <div
             key={index}
-            className="w-full h-full transition-colors duration-200 hover:opacity-80"
+            className="w-full h-full transition-colors duration-1000 hover:opacity-80"
             style={{ backgroundColor: color }}
           />
         ))}

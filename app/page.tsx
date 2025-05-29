@@ -10,12 +10,12 @@ export default function Home() {
       />
       <Hero1
         heading="We build stuff"
-        description="(mostly gmaes)"
+        description="(like, with code)"
         badge=""
         buttons={{
           primary: {
-            text: "Our Gmaes",
-            url: "/gmaes",
+            text: "Our Stuff",
+            url: "/stuff",
           },
           secondary: {
             text: "Github",
