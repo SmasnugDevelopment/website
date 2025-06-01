@@ -29,12 +29,12 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${robotoMono.className} ${boringLegalFont.variable} antialiased`}
+        className={`${robotoMono.className} ${boringLegalFont.variable} antialiased min-h-screen flex flex-col`}
       >
         <PostHogProvider>
           <ThemeProvider attribute="class" forcedTheme="dark">
             <Navbar />
-            {children}
+            <main className="mb-auto">{children}</main>
             <Footer />
           </ThemeProvider>
         </PostHogProvider>
