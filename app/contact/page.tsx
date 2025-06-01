@@ -1,8 +1,12 @@
+import Link from "next/link";
+
 export default function ContactPage() {
   return (
-    <div>
-      <h1>Contact Us</h1>
-      <p>Feel free to reach out to us...</p>
-    </div>
+    <section className="p-4 flex justify-center">
+      <div className="prose-lg container">
+        <h1>Contact Us</h1>
+        <p>Coming soon</p>
+      </div>
+    </section>
   );
 }

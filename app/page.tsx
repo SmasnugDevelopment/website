@@ -6,7 +6,7 @@ export default function Home() {
     <>
       <GridBackground
         className="absolute -z-10 w-full top-0 h-screen mask-alpha mask-b-from-black"
-        cellSize={100}
+        cellSize={300}
       />
       <Hero1
         heading="We build stuff"
